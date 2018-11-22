@@ -728,6 +728,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   type: 1
   blueside: 1
+  choosenum: 1
+  rotate: 0
 --- !u!114 &236753827
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -749,7 +751,7 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_Sprite: {fileID: 21300000, guid: 86c62e2b0ce0a3e4b8af36a4963937c1, type: 3}
   m_Type: 0
-  m_PreserveAspect: 0
+  m_PreserveAspect: 1
   m_FillCenter: 1
   m_FillMethod: 4
   m_FillAmount: 1
@@ -1379,6 +1381,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   type: 2
   blueside: 1
+  choosenum: 2
+  rotate: 0
 --- !u!114 &556869003
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1400,7 +1404,7 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_Sprite: {fileID: 21300000, guid: 562bbf952e4103740bb2bbcbcac00e07, type: 3}
   m_Type: 0
-  m_PreserveAspect: 0
+  m_PreserveAspect: 1
   m_FillCenter: 1
   m_FillMethod: 4
   m_FillAmount: 1
@@ -2561,6 +2565,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   type: 2
   blueside: 0
+  choosenum: 2
+  rotate: 0
 --- !u!114 &1031946258
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2582,7 +2588,7 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_Sprite: {fileID: 21300000, guid: 562bbf952e4103740bb2bbcbcac00e07, type: 3}
   m_Type: 0
-  m_PreserveAspect: 0
+  m_PreserveAspect: 1
   m_FillCenter: 1
   m_FillMethod: 4
   m_FillAmount: 1
@@ -4692,6 +4698,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   type: 1
   blueside: 0
+  choosenum: 1
+  rotate: 0
 --- !u!114 &1824913568
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4713,7 +4721,7 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_Sprite: {fileID: 21300000, guid: 86c62e2b0ce0a3e4b8af36a4963937c1, type: 3}
   m_Type: 0
-  m_PreserveAspect: 0
+  m_PreserveAspect: 1
   m_FillCenter: 1
   m_FillMethod: 4
   m_FillAmount: 1
