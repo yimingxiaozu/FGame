@@ -73,9 +73,9 @@ public class Gezi : MonoBehaviour {
     {
         int tmpx, tmpy;
         int tmp;
-        if (PublicData.bechosen>2)
+        if (PublicData.bechosen>3)
         {
-            tmpchoose = GameObject.Find("RedSide/Choose"+(PublicData.bechosen-2));
+            tmpchoose = GameObject.Find("RedSide/Choose"+(PublicData.bechosen-3));
         }
         else
         {
@@ -164,6 +164,7 @@ public class Gezi : MonoBehaviour {
     }
 	public void GeziClick()
     {
+        GameObject canvas = GameObject.Find("Canvas");
         if (PublicData.gamelock == true)
             return;
         int type = PublicData.type;
@@ -188,6 +189,36 @@ public class Gezi : MonoBehaviour {
             {
                 print("游戏结束");
                 PublicData.gamelock = true;
+                if(PublicData.gamemoshi==1)
+                {
+                    if (PublicData.BlueCount > (PublicData.RedCount + 4))
+                    {
+                        print("蓝方获胜");
+                        GameObject wintext = canvas.transform.Find("BlueWinText").gameObject;
+                        wintext.SetActive(true);
+                    }
+                    else
+                    {
+                        print("红方获胜");
+                        GameObject wintext = canvas.transform.Find("RedWinText").gameObject;
+                        wintext.SetActive(true);
+                    }
+                }
+                if(PublicData.gamemoshi==2)
+                {
+                    if(PublicData.RoundCount%2==0)
+                    {
+                        print("蓝方获胜");
+                        GameObject wintext = canvas.transform.Find("BlueWinText").gameObject;
+                        wintext.SetActive(true);
+                    }
+                    else
+                    {
+                        print("红方获胜");
+                        GameObject wintext = canvas.transform.Find("RedWinText").gameObject;
+                        wintext.SetActive(true);
+                    }
+                }
             }
         }
         
@@ -196,13 +227,13 @@ public class Gezi : MonoBehaviour {
     {
         int chosen = PublicData.bechosen;
         GameObject choose;
-        if (PublicData.bechosen<=2)
+        if (PublicData.bechosen<=3)
         {
             choose = GameObject.Find("BlueSide/Choose" + chosen);
         }
         else
         {
-            chosen = chosen - 2;
+            chosen = chosen - 3;
             choose = GameObject.Find("RedSide/Choose" + chosen);
         }
         if(choose==null)
@@ -212,7 +243,7 @@ public class Gezi : MonoBehaviour {
         Image tmpimage = choose.gameObject.GetComponent<Image>();
         Sprite tmpsprite;
         System.Random ran = new System.Random();
-        int randomkey = ran.Next(1, 5);//1~4
+        int randomkey = ran.Next(1, 15);//1~14
         print("随机数为"+randomkey);
         tmpsprite = Resources.Load("img/type"+randomkey, typeof(Sprite)) as Sprite;
         tmpimage.sprite = tmpsprite;
@@ -224,7 +255,7 @@ public class Gezi : MonoBehaviour {
         int type;
         bool judge=false;//判断游戏是否结束 false表示结束
         
-        for(int i=1;i<=2;i++) //2表示一边2个 后期变成3个
+        for(int i=1;i<=3;i++) //2表示一边2个 后期变成3个
         {
             if(PublicData.RoundCount%2==1) 
             {
@@ -235,9 +266,9 @@ public class Gezi : MonoBehaviour {
                 choose = GameObject.Find("RedSide/Choose" + i);
             }
             type=choose.gameObject.GetComponent<ChooseType>().type;
-            for(int x=1;x<=4;x++)//逐格尝试放入
+            for(int x=1;x<=8;x++)//逐格尝试放入
             {
-                for(int y=1;y<=9;y++)
+                for(int y=1;y<=12;y++)
                 {
                     judge = AllJudge(x, y, PublicData.xn[type - 1], PublicData.yn[type - 1], PublicData.num[type - 1]);
 

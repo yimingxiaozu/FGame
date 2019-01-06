@@ -22,7 +22,7 @@ public class ChooseType : MonoBehaviour {
         }
         else
         {
-            if (choosenum == PublicData.bechosen-2)
+            if (choosenum == PublicData.bechosen-3)
             {
                 Rotate();
             }
@@ -36,7 +36,7 @@ public class ChooseType : MonoBehaviour {
             if (blueside == true)
                 PublicData.bechosen = choosenum;
             else
-                PublicData.bechosen = 2 + choosenum;
+                PublicData.bechosen = 3 + choosenum;
             print("bechosen:" + PublicData.bechosen);
         }
     }
