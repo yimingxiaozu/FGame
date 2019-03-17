@@ -334,3 +334,4 @@ C:\Users\一名小卒\Documents\GitHub\FGame\FGame\obj\Debug\Assembly-CSharp.csp
 C:\Users\一名小卒\Documents\GitHub\FGame\FGame\obj\Debug\Assembly-CSharp.csproj.CopyComplete
 C:\Users\一名小卒\Documents\GitHub\FGame\FGame\obj\Debug\Assembly-CSharp.dll
 C:\Users\一名小卒\Documents\GitHub\FGame\FGame\obj\Debug\Assembly-CSharp.pdb
+C:\Users\一名小卒\Documents\GitHub\FGame\FGame\Temp\bin\Debug\Newtonsoft.Json.dll

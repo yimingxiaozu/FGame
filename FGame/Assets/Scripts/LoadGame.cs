@@ -7,7 +7,7 @@ public class LoadGame : MonoBehaviour {
     public int moshi;
 	// Use this for initialization
 	void Start () {
-		
+
 	}
 	public void Load()
     {

@@ -2,6 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 public static class PublicData {
+    public static string playername = "";
+    public static int winnum = 0;
+    public static int gamenum = 0;
+    public static double winrate = 0;
     public static int BlueCount = 0;
     public static int RedCount = 0;
     public static int RoundCount = 1;
