@@ -132,6 +132,7 @@
     <Compile Include="Assets\classes\src\tools\BmobArrays.cs" />
     <Compile Include="Assets\classes\src\tools\BmobDebug.cs" />
     <Compile Include="Assets\classes\src\tools\Utilities.cs" />
+    <Compile Include="Assets\Scripts\AIRound.cs" />
     <Compile Include="Assets\Scripts\ChongZhi.cs" />
     <Compile Include="Assets\Scripts\ChooseType.cs" />
     <Compile Include="Assets\Scripts\Gezi.cs" />

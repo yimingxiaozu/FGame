@@ -43,4 +43,9 @@ public static class PublicData {
     public static int []num = {3,4,4,4,4,3,4,4,4,5,5,5,5,5};
     public static bool gamelock = false;
     public static int gamemoshi = 0;
+    //AI填格子所需
+    public static int ai_gezi_x = 0;
+    public static int ai_gezi_y = 0;
+    public static int ai_gezi_type = 0;
+    public static int ai_gezi_rotate = 0;
 }

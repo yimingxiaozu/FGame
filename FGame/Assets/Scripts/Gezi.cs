@@ -14,7 +14,7 @@ public class Gezi : MonoBehaviour {
 	}
     int rotate;
     GameObject tmpchoose;
-    bool AllJudge(int X,int Y,int []xn,int []yn,int num)
+    public static bool AllJudge(int X,int Y,int []xn,int []yn,int num)
     {
         bool judge=false;
         bool tmpjudge= true;
@@ -31,6 +31,10 @@ public class Gezi : MonoBehaviour {
                 tmpjudge=false;
         }
         judge = judge || tmpjudge;
+        if(tmpjudge == true && PublicData.RoundCount%2==0) //ai需求获取旋转次数
+        {
+            PublicData.ai_gezi_rotate = 0;
+        }
         tmpjudge = true;
         for (int i = 0; i < num; i++)
         {
@@ -43,6 +47,10 @@ public class Gezi : MonoBehaviour {
                 tmpjudge = false;
         }
         judge = judge || tmpjudge;
+        if (tmpjudge == true && PublicData.RoundCount % 2 == 0) //ai需求获取旋转次数
+        {
+            PublicData.ai_gezi_rotate = 1;
+        }
         tmpjudge = true;
         for (int i = 0; i < num; i++)
         {
@@ -55,6 +63,10 @@ public class Gezi : MonoBehaviour {
                 tmpjudge = false;
         }
         judge = judge || tmpjudge;
+        if (tmpjudge == true && PublicData.RoundCount % 2 == 0) //ai需求获取旋转次数
+        {
+            PublicData.ai_gezi_rotate = 2;
+        }
         tmpjudge = true;
         for (int i = 0; i < num; i++)
         {
@@ -67,6 +79,10 @@ public class Gezi : MonoBehaviour {
                 tmpjudge = false;
         }
         judge = judge || tmpjudge;
+        if (tmpjudge == true && PublicData.RoundCount % 2 == 0) //ai需求获取旋转次数
+        {
+            PublicData.ai_gezi_rotate = 3;
+        }
         return judge;
     }
     bool Judge(int X,int Y,int[]xn,int []yn,int num)
@@ -121,7 +137,7 @@ public class Gezi : MonoBehaviour {
         }
         return true;
     }
-    void Paint(int[] xn, int[] yn, int num)
+    public static void Paint(int x,int y,int[] xn, int[] yn, int num)
     {
         int X, Y;
         GameObject bluescore = GameObject.Find("BlueScore");
@@ -157,10 +173,13 @@ public class Gezi : MonoBehaviour {
             
         PublicData.RoundCount++;
         PublicData.type = 0;
-        tmpchoose.gameObject.GetComponent<ChooseType>().rotate = 0;
-        tmpchoose.gameObject.transform.localEulerAngles = new Vector3(0, 0, 0);
+        ChangeType();
         print("蓝色方块数" + PublicData.BlueCount);
         print("红色方块数" + PublicData.RedCount);
+        if(PublicData.RoundCount%2==0) //判断是否是AI回合
+        {
+            AIRound.AI();
+        }
     }
 	public void GeziClick()
     {
@@ -183,8 +202,9 @@ public class Gezi : MonoBehaviour {
         }
         if (Judge(x,y, publicxn, publicyn, publicnum))
         {
-            Paint(publicxn, publicyn, publicnum);
-            ChangeType();
+            Paint(this.x,this.y, publicxn, publicyn, publicnum);
+            tmpchoose.gameObject.GetComponent<ChooseType>().rotate = 0;
+            tmpchoose.gameObject.transform.localEulerAngles = new Vector3(0, 0, 0);
             if(JudgeGameover()==false)//judge=true未结束 judge=false结束
             {
                 print("游戏结束");
@@ -223,7 +243,7 @@ public class Gezi : MonoBehaviour {
         }
         
     }
-    void ChangeType()
+    public static void ChangeType()
     {
         int chosen = PublicData.bechosen;
         GameObject choose;
