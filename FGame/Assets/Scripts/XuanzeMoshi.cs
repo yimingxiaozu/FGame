@@ -16,6 +16,12 @@ public class XuanzeMoshi : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		
-	}
+        GameObject usertext = GameObject.Find("UsernameText");
+        GameObject winnumtext = GameObject.Find("WinnumText");
+        GameObject winratetext = GameObject.Find("WinrateText");
+        usertext.GetComponent<Text>().text = "玩家账号：" + PublicData.playername;
+        winnumtext.GetComponent<Text>().text = "胜场：" + PublicData.winnum.ToString();
+        PublicData.winrate = PublicData.winnum * 100.0 / PublicData.gamenum;
+        winratetext.GetComponent<Text>().text = "胜率：" + PublicData.winrate.ToString("f2") + "%";
+    }
 }

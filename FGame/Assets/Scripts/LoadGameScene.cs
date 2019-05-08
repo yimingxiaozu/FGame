@@ -112,6 +112,7 @@ public class LoadGameScene : MonoBehaviour {
             print("登录成功, @" + resp.username + "$[" + resp.sessionToken + "]");
             zhuangtai.GetComponent<Text>().text = "登录成功，欢迎" + resp.username+"\n请点击进入";
             print("登录成功, 当前用户对象Session： " + BmobUser.CurrentUser.sessionToken);
+            PublicData.sessionToken = BmobUser.CurrentUser.sessionToken;
             GameObject startbutton = canvas.transform.Find("Panel/StartButton").gameObject;
             startbutton.SetActive(true);
         });
@@ -172,7 +173,22 @@ public class LoadGameScene : MonoBehaviour {
             }
         });
     }
+    public void UpdateUser(string username,int gamenum,int winnum)
+    {
+        MyBmobUser myuser = BmobUser.CurrentUser as MyBmobUser;
+        myuser.gamenum = gamenum;
+        myuser.winnum = winnum;
+        Bmob.UpdateUser(myuser.objectId, myuser, myuser.sessionToken, (resp, exception) =>
+           {
+               if (exception != null)
+               {
+                   print("保存失败, 失败原因为： " + exception.Message);
+                   return;
+               }
 
+               print("保存成功, @" + resp.updatedAt);
+           });
+    }
     public class BmobGameObject : BmobTable
     {
         private String fTable;

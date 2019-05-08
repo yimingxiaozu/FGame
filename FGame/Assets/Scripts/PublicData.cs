@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 public static class PublicData {
     public static string playername = "";
+    public static string sessionToken = "";
     public static int winnum = 0;
     public static int gamenum = 0;
     public static double winrate = 0;

@@ -208,12 +208,14 @@ public class Gezi : MonoBehaviour {
             if(JudgeGameover()==false)//judge=true未结束 judge=false结束
             {
                 print("游戏结束");
+                PublicData.gamenum++;
                 PublicData.gamelock = true;
                 if(PublicData.gamemoshi==1)
                 {
                     if (PublicData.BlueCount > (PublicData.RedCount + 4))
                     {
                         print("蓝方获胜");
+                        PublicData.winnum++;
                         GameObject wintext = canvas.transform.Find("BlueWinText").gameObject;
                         wintext.SetActive(true);
                     }
@@ -229,6 +231,7 @@ public class Gezi : MonoBehaviour {
                     if(PublicData.RoundCount%2==0)
                     {
                         print("蓝方获胜");
+                        PublicData.winnum++;
                         GameObject wintext = canvas.transform.Find("BlueWinText").gameObject;
                         wintext.SetActive(true);
                     }
@@ -239,6 +242,8 @@ public class Gezi : MonoBehaviour {
                         wintext.SetActive(true);
                     }
                 }
+                GameObject camera = GameObject.Find("Main Camera");
+                camera.GetComponent<LoadGameScene>().UpdateUser(PublicData.playername, PublicData.gamenum, PublicData.winnum);
             }
         }
         

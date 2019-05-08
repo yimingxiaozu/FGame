@@ -44,6 +44,10 @@ public class AIRound : MonoBehaviour {
             }
                 
         }
+        if(judge==false)
+        {
+            return;
+        }
         int publicnum = PublicData.num[PublicData.ai_gezi_type - 1];
         int[] publicxn = new int[publicnum];
         int[] publicyn = new int[publicnum];
